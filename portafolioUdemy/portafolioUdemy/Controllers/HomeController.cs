@@ -15,6 +15,7 @@ namespace portafolioUdemy.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Nombre = "Diego Nova";
             return View();
         }
 
