@@ -20,10 +20,10 @@ namespace portafolioUdemy.Servicios
 
         public async Task Enviar(ContactoDTO contactoDTO)
         {
-            var emailEmisor = configuration.GetValue<string>("CONFIGURACIONES_EMAIL: EMAIL");
-            var password = configuration.GetValue<string>("CONFIGURACIONES_EMAIL: PASSWORD");
-            var host = configuration.GetValue<string>("CONFIGURACIONES_EMAIL: HOST");
-            var puerto = configuration.GetValue<int>("CONFIGURACIONES_EMAIL: PUERTO");
+            var emailEmisor = configuration.GetValue<string>("CONFIGURACIONES_EMAIL:EMAIL");
+            var password = configuration.GetValue<string>("CONFIGURACIONES_EMAIL:PASSWORD");
+            var host = configuration.GetValue<string>("CONFIGURACIONES_EMAIL:HOST");
+            var puerto = configuration.GetValue<int>("CONFIGURACIONES_EMAIL:PUERTO");
 
             var smtpCliente = new SmtpClient(host, puerto);
             smtpCliente.EnableSsl = true;

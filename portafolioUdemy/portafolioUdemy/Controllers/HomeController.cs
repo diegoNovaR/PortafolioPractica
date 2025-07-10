@@ -9,12 +9,12 @@ namespace portafolioUdemy.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IRepositorioProyectos repo;//principios de inversi[on de dependencias
-        private readonly IServicioEmail email;
-        public HomeController(ILogger<HomeController> logger, IRepositorioProyectos repo, IServicioEmail email)
+        private readonly IServicioEmail servicioEmail;
+        public HomeController(ILogger<HomeController> logger, IRepositorioProyectos repo, IServicioEmail servicioEmail)
         {
             _logger = logger;
             this.repo = repo;
-            this.email = email;
+            this.servicioEmail = servicioEmail;
         }
 
         public IActionResult Index()
@@ -41,9 +41,9 @@ namespace portafolioUdemy.Controllers
         }
 
         [HttpPost]
-        public IActionResult Contacto(ContactoDTO contactoDTO)
+        public async Task<IActionResult> Contacto(ContactoDTO contactoDTO)
         {
-
+            await servicioEmail.Enviar(contactoDTO);
             return RedirectToAction("Gracias");
         }
 
