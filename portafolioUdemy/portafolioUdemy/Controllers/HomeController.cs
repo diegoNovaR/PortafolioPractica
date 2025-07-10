@@ -15,8 +15,12 @@ namespace portafolioUdemy.Controllers
 
         public IActionResult Index()
         {
-            
-            return View("Index", "Diego Nova Rosas");
+            var persona = new Persona
+            {
+                Nombre = "Diego Nova Rosas",
+                Edad = 23
+            };
+            return View(persona);
         }
 
         public IActionResult Privacy()
