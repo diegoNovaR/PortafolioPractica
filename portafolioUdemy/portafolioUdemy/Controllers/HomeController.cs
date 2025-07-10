@@ -8,8 +8,8 @@ namespace portafolioUdemy.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly RepositorioProyectos repo;//inyeccion de dependencias
-        public HomeController(ILogger<HomeController> logger, RepositorioProyectos repo)
+        private readonly IRepositorioProyectos repo;//principios de inversi[on de dependencias
+        public HomeController(ILogger<HomeController> logger, IRepositorioProyectos repo)
         {
             _logger = logger;
             this.repo = repo;
