@@ -4,7 +4,12 @@ using portafolioUdemy.Models;
 
 namespace portafolioUdemy.Servicios
 {
-    public class ServicioEmailGmail
+    public interface IServicioEmail
+    {
+        Task Enviar(ContactoDTO contactoDTO);
+    }
+
+    public class ServicioEmailGmail : IServicioEmail
     {
         private readonly IConfiguration configuration;
 
@@ -25,9 +30,9 @@ namespace portafolioUdemy.Servicios
             smtpCliente.UseDefaultCredentials = false;
 
             smtpCliente.Credentials = new NetworkCredential(emailEmisor, password);
-            var mensaje = new MailMessage(emailEmisor, emailEmisor, 
+            var mensaje = new MailMessage(emailEmisor, emailEmisor,
                 $"El cliente {contactoDTO.Nombre} ({contactoDTO.Email}) quiere Contactarte", contactoDTO.Mensaje);
-
+            await smtpCliente.SendMailAsync(mensaje);
         }
 
     }
