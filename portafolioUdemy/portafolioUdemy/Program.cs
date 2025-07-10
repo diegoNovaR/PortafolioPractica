@@ -1,7 +1,10 @@
+using portafolioUdemy.Servicios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IRepositorioProyectos, RepositorioProyectos>();//se usa para la inyeccion de dependencias
 
 var app = builder.Build();
 
