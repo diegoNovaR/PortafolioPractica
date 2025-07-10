@@ -32,6 +32,24 @@ namespace portafolioUdemy.Controllers
             return View(proyectos);
         }
 
+        [HttpGet]
+        public IActionResult Contacto()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contacto(ContactoDTO contactoDTO)
+        {
+            return RedirectToAction("Gracias");
+        }
+
+        public IActionResult Gracias()
+        {
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
