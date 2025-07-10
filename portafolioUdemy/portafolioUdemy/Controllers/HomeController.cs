@@ -25,9 +25,11 @@ namespace portafolioUdemy.Controllers
 
 
 
-        public IActionResult Privacy()
+        public IActionResult Proyectos()
         {
-            return View();
+            var proyectos = repo.ObtenerProyecto().ToList();
+            
+            return View(proyectos);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
